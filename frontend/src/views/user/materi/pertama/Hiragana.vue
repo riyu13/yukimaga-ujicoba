@@ -6,22 +6,23 @@ import KatakanaDB from "./data/KatakanaDB.vue";
 
 <template>
 <NavbarUser/>
-<div class="container pt-4">
+<div class="container pt-5">
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-header"><strong><h3>Hiragana</h3></strong></div>
-                <Hiraganadb/></div>
+                <div class="card-body">
+                <Hiraganadb/></div></div>
         </div>
         <div class="col">
           <div class="card">
                 <div class="card-header"><strong><h3>Katakana</h3></strong></div>
+                <div class="card-body">
                 <KatakanaDB/>
-            </div>
+            </div></div>
         </div>
     </div>
 </div>
-
 </template>
 <style>
 .card{
@@ -62,7 +63,7 @@ import KatakanaDB from "./data/KatakanaDB.vue";
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #d8d7d1;
+  background-color: #ffffff;
   color: black;
 }
 

@@ -5,6 +5,8 @@ import $ from 'jquery'
 // import store from './store'
 import 'admin-lte'
 import 'bulma'
+import 'paginationjs'
+import axios from 'axios'
 
 import VueSweetalert2 from 'vue-sweetalert2'
 import { PaginationPlugin } from 'bootstrap-vue'
@@ -30,12 +32,11 @@ library.add(faRightFromBracket)
 const app = Vue.createApp(App)
 
 app.use(router , VueSweetalert2, BootstrapVue, PaginationPlugin)
-
 app.component('font-awesome-icon', FontAwesomeIcon, 'b-sidebar',BSidebar,'b-pagination',BPagination)
-
 app.component($)
-
 app.mount('#app')
+app.config.devtools = true;
 
 
 import 'bootstrap/dist/js/bootstrap.bundle.js'
+axios.defaults.baseURL = 'http://localhost:3000/'

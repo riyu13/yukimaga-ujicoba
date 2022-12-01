@@ -1,11 +1,12 @@
 <template>
 <NavbarAdmin/>
 <SidebarAdmin/>
-<div class="container pt-4">
-  <!-- <router-link to="/pendaftaran" tag="button"><button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#myModal2">Pendaftaran</button></router-link> -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal4">Tambah</button>
-<br/>
+<div class="container pt-5">
 <div class="card">
+<div class="card-body">
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal4"><i class="fas fa-user-plus"></i> Tambah</button>
+<br/>
+<div class="card mt-1">
 <div class="card-header"><h3 class="text-center">Data Sensei</h3></div>
 <div class="card-body">
 <table id="myTable" class="table table-striped table-hover">
@@ -31,11 +32,12 @@
     <td>{{ user.notelp }}</td>
     <td>{{ user.jkel }}</td>
     <td>{{ user.email }}</td>
-    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(user)">Ubah</button><button @click="del(user)" class="btn btn-danger btn-small">Hapus</button></td>
+    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(user)"><i class="fas fa-edit"></i></button>
+      <button @click="del(user)" class="btn btn-danger btn-small"><i class="fas fa-trash"></i></button></td>
 </tr>
 </tbody> 
 </table>
-</div></div>
+</div></div></div></div>
     <!-- The Modal -->
     <div class="modal" id="myModal3">
         <div class="modal-dialog">
@@ -215,6 +217,7 @@ export default {
             showConfirmButton: true,
             timer: 1500
             })
+            this.load()
         this.form.id = ''
         this.form.nama = ''
         this.form.alamat = ''

@@ -9,7 +9,7 @@
       <div class="accordion-body">
         <div class="list-group">
           <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/materin5" class="nav-link">Bahasa N5</router-link></a>
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">Latihan</a>
+          <!-- <a href="#" class="list-group-item list-group-item-action list-group-item-light">Latihan</a> -->
         </div>
       </div>
     </div>

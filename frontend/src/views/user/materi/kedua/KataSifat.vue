@@ -51,24 +51,18 @@ export default {
 }
 </script>
 
-<script setup>
-
-</script>
 <template>
 <NavbarUser/>
 <div class="row">
 <div class="col-1"></div>
 <div class="col">
 <div class="container pt-4">
-<div class="form-floating mb-1 mt-1 col-2">
+<div class="form-floating mb-1 mt-1 col-3">
     <input class="form-control" id="myInput" type="text" placeholder="Search..">
     <label>Search</label>
 </div>
     <div class="card">
     <div class="card-header"><strong class="h3">Kata Sifat (i)</strong></div>
-    <div class="row fluid">
-        </div></div>
-            <div class="card">
                 <div class="card-body">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -93,15 +87,12 @@ export default {
     </div></div>
     <div class="col">
     <div class="container pt-4">
-<div class="form-floating mb-1 mt-1 col-2">
+<div class="form-floating mb-1 mt-1 col-3">
     <input class="form-control" id="myInput2" type="text" placeholder="Search..">
     <label>Search</label>
 </div>
     <div class="card">
     <div class="card-header"><strong class="h3">Kata Sifat (Na)</strong></div>
-    <div class="row fluid">
-        </div></div>
-            <div class="card">
                 <div class="card-body">
                 <table class="table table-striped table-hover">
                     <thead>

@@ -1,11 +1,18 @@
 <template>
 <NavbarAdmin/>    
 <SidebarAdmin/>
-    <div class="container pt-4">
-    <div class="form-floating mb-1 mt-1 col-2">
+    <div class="container pt-5">
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+    <div class="col-sm-10">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahkanji"><i class="fas fa-plus"></i> Tambah</button>
+    <br/></div>
+    <div class="col">
+    <div class="form-floating mt-1 mb-1">
     <input class="form-control" id="kanjin5" type="text" placeholder="Search..">
     <label>Search</label>
-    </div>
+    </div></div></div>
     <div class="card" >
     <div class="card-header">
         <strong class="h3">Kanji Dasar N5</strong></div>
@@ -29,8 +36,8 @@
                         <td>{{ kanji.kunyomi}}</td>
                         <td>{{ kanji.arti}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(kanji)">Ubah</button>
-                            <button type="button" class="btn btn-danger" @click="del(kanji)">Hapus</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(kanji)"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger" @click="del(kanji)"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                     </tbody>
@@ -80,7 +87,51 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- The Modal -->
+        <div class="modal" id="tambahkanji">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tambah kanji N5</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <form @submit.prevent="add">
+                    <div class="form-floating mb-2 mt-2">
+                        <input type="text" class="form-control" id="id"  placeholder="Masukkan id" name="id" v-model="form.id" required>
+                        <label for="id">ID Kanji</label>
+                    </div>
+                    <div class="form-floating mb-2 mt-2">
+                        <input type="text" class="form-control" id="kanji" placeholder="Masukkan Nama" name="kanji" v-model="form.kanji" required >
+                        <label for="kanji">Kanji</label>
+                    </div>
+                    <div class="form-floating mb-2 mt-2">
+                        <input type="text" class="form-control" id="onyomi" placeholder="Alamat" name="onyomi" v-model="form.onyomi" required>
+                        <label for="onyomi">Onyomi</label>
+                    </div>
+                    <div class="row">
+                    <div class="col">
+                    <div class="form-floating mb-2 mt-2">
+                        <input type="text" class="form-control" id="kunyomi" placeholder="kunyomi" name="kunyomi" v-model="form.kunyomi" required>
+                        <label for="kunyomi">Kunyomi</label>
+                    </div>
+                    <div class="form-floating mb-2 mt-2">
+                        <input type="text" class="form-control" id="arti" placeholder="Alamat" name="arti" v-model="form.arti" required>
+                        <label for="arti">Arti</label>
+                    </div>
+                </div></div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-outline-primary btn-lg" v-on:click="alertDisplay">Simpan</button>
+                    <button type="reset" class="btn btn-outline-danger btn-lg">Reset</button>
+                </div>
+              </form></div>
+                    <!-- Modal footer -->
+                </div>
+            </div>
+        </div></div>
+    </div></div>
     </div>
 </template>
 
@@ -89,6 +140,7 @@ import SidebarAdmin from '../../../../components/SidebarAdmin.vue';
 import NavbarAdmin from '../../../../components/NavbarAdmin.vue';
 import axios from 'axios'
 import Swal from 'sweetalert2';
+import $ from 'jquery'
  // New record
 export default {
     data() {
@@ -124,6 +176,31 @@ export default {
                 console.log(err);
             });
         },
+        add(){
+        axios.post('http://localhost:3000/kanjin5/', this.form).then(res => {
+            this.load()
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Data Berhasil Disimpan',
+            showConfirmButton: true,
+            timer: 1500
+            })
+        this.form.id = ''
+        this.form.kanji = ''
+        this.form.onyomi = ''
+        this.form.kunyomi = ''
+        this.form.arti = ''
+      }).catch ((err) => {
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Data Gagal Disimpan',
+            showConfirmButton: true,
+            timer: 1500
+        })
+      })
+    },
         del(kanji) {
             Swal.fire({
                 title: "Apakah kamu akan menghapusnya?",

@@ -1,6 +1,6 @@
 <script setup>
 import Sidebarberanda from './sidebaradmin/sidebarberanda.vue';
-import SidebarKontak from './sidebaradmin/SidebarKontak.vue';
+// import SidebarKontak from './sidebaradmin/SidebarKontak.vue';
 import SidebarPesertaMagang from './sidebaradmin/SidebarPesertaMagang.vue';
 import SidebarSensei from './sidebaradmin/SidebarSensei.vue';
 
@@ -10,7 +10,7 @@ import SidebarSensei from './sidebaradmin/SidebarSensei.vue';
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
    <div class="sidebar">
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <a href="/">
+      <a href="/homea">
        <label class="h5 text-light">Gilang Firza Rivanka</label></a>
      </div>
 
@@ -29,7 +29,7 @@ import SidebarSensei from './sidebaradmin/SidebarSensei.vue';
          <SidebarPesertaMagang/>
          <li class="nav-item">
            <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
+            <i class="nav-icon fas fa-swatchbook"></i>
              <p>
                Materi Belajar
                <i class="fas fa-angle-left right"></i>
@@ -47,13 +47,13 @@ import SidebarSensei from './sidebaradmin/SidebarSensei.vue';
                <ul class="nav nav-treeview">
                 <li class="nav-item">
                <RouterLink to="/tabelhirakata" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon"></i>
                  <p>Tabel Hiragana & Katakana</p>
                </RouterLink>
              </li>
              <li class="nav-item">
                <RouterLink to="/kanjiadmin" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
+                 <i class="nav-icon"></i>
                  <p>Tabel Kanji N5</p>
                </RouterLink>
              </li>
@@ -67,20 +67,26 @@ import SidebarSensei from './sidebaradmin/SidebarSensei.vue';
              <ul class="nav nav-treeview">
                 <li class="nav-item">
                <RouterLink to="/katabendaadmin" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
+                 <i class="nav-icon"></i>
                  <p>Tabel Kata Benda</p>
                </RouterLink>
              </li>
              <li class="nav-item">
                <RouterLink to="/katakerjaadmin" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
+                 <i class="nav-icon"></i>
                  <p>Tabel Kata Kerja</p>
                </RouterLink>
              </li>
              <li class="nav-item">
                <RouterLink to="/katasifatadmin" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
-                 <p>Tabel Kata Sifat</p>
+                 <i class="nav-icon"></i>
+                 <p>Tabel Kata Sifat Ikeyoushi</p>
+               </RouterLink>
+             </li>
+             <li class="nav-item">
+               <RouterLink to="/katasifat2admin" class="nav-link">
+                 <i class="nav-icon"></i>
+                 <p>Tabel Kata Sifat Nakeiyoushi</p>
                </RouterLink>
              </li>
                </ul>

@@ -11,7 +11,7 @@
             <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link class="nav-link" to="/katabenda">Kata Benda(名詞 | めいし)</router-link> </a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/katakerja" class="nav-link">Kata Kerja(動詞 | どうし)</router-link> </a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/katasifat" class="nav-link">Kata Sifat(形容詞 | けいようし)</router-link> </a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/latihan2" class="nav-link">Latihan</router-link></a>
+            <!-- <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/latihan2" class="nav-link">Latihan</router-link></a> -->
           </div>
       </div>
     </div>

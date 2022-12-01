@@ -10,9 +10,6 @@ import NavbarUser from "../../../../components/NavbarUser.vue";
 </div>
     <div class="card">
     <div class="card-header"><strong class="h3">Kata Kerja</strong></div>
-    <div class="row fluid">
-        </div></div>
-            <div class="card">
                 <div class="card-body">
                 <table class="table table-striped table-hover">
                     <thead>

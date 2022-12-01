@@ -1,7 +1,8 @@
 <template>
 <NavbarAdmin/>    
 <SidebarAdmin/>
-<div class="container pt-4">
+<div class="container pt-5">
+<div class="card">
 <div class="form-floating mb-1 mt-1 col-2">
     <input class="form-control" id="hirakata" type="text" placeholder="Search..">
     <label>Search</label>
@@ -25,11 +26,11 @@
                         <td> {{ kana.hiragana}} </td>
                         <td> {{ kana.katakana}} </td>
                         <td> {{ kana.romaji}} </td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(kana)">Ubah</button>
-                    <button @click="del(kana)" class="btn btn-danger btn-small">Hapus</button></td></tr>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(kana)"><i class="fas fa-edit"></i></button>
+                    <button @click="del(kana)" class="btn btn-danger btn-small"><i class="fas fa-trash"></i></button></td></tr>
                     </tbody>
                 </table>
-                </div>
+                </div></div>
                  <!-- The Modal -->
             <div class="modal" id="myModal3">
             <div class="modal-dialog">
@@ -76,19 +77,11 @@
 </template>
 
 <script>
-$(document).ready(function(){
-    $("#hirakata").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#tablehirakata tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
-
 import SidebarAdmin from '../../../../components/SidebarAdmin.vue';
 import NavbarAdmin from '../../../../components/NavbarAdmin.vue';
 import Swal from 'sweetalert2';
 import axios from 'axios'
+import $ from 'jquery'
 export default {
     data() {
         return {
@@ -151,5 +144,14 @@ export default {
     },
     components: { SidebarAdmin, NavbarAdmin }
 }
+
+$(document).ready(function(){
+    $("#hirakata").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablehirakata tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
 
 </script>

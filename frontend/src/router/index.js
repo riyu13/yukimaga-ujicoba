@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Yukimaga from '../views/Yukimaga.vue'
 import Login from '../views/Login.vue'
+import LoginSensei from '../views/LoginSensei.vue'
+import LoginUser from '../views/LoginUser.vue'
 import Homea from '../views/admin/BerandaAdmin.vue'
 import Homeu from '../views/user/BerandaUser.vue'
+import Homes from '../views/sensei/BerandaSensei.vue'
 import Tabel from '../views/admin/TabelPeserta.vue'
+import TabelPeserta from '../views/sensei/menu/TabelPeserta.vue'
 import Pembayaran from '../views/admin/Pembayaran.vue'
 import Sensei from '../views/admin/TabelSensei.vue'
 import MateriN5 from '../views/user/materi/ketiga/materin5.vue'
@@ -23,8 +28,23 @@ import Materi55 from '../views/user/materi/ketiga/componenside/isi/materi55.vue'
 const routes= [
     {
       path: '/',
+      name: 'Yukimaga',
+      component: Yukimaga,
+    },
+    {
+      path: '/login',
       name: 'Login',
       component: Login,
+    }, 
+    {
+      path: '/loginsensei',
+      name: 'LoginSensei',
+      component: LoginSensei,
+    },
+    {
+      path: '/loginuser',
+      name: 'LoginUser',
+      component: LoginUser,
     },
     {
       path: '/homea',
@@ -37,9 +57,19 @@ const routes= [
       component: Homeu,
     },
     {
+      path: '/homes',
+      name: 'Homes',
+      component: Homes,
+    },
+    {
       path: '/tabel',
       name: 'Tabel',
       component: Tabel
+    },
+    {
+      path: '/tabelpeserta',
+      name: 'TabelPeserta',
+      component: TabelPeserta
     },
     {
       path: '/pembayaran',
@@ -50,11 +80,6 @@ const routes= [
       path: '/sensei',
       name: 'Sensei',
       component: Sensei
-    },
-    {
-      path: '/pendaftaran',
-      name: 'Pendaftaran',
-      component: () => import('../views/admin/Pendaftaran.vue')
     },
     {
       path: '/materiadmin',
@@ -77,9 +102,14 @@ const routes= [
       component: () => import('../views/admin/menu/MateriBelajar/KanjiDasarAdmin.vue')
     },
     {
-      path: '/tableuji',
-      name: 'tableuji',
-      component: () => import('../views/admin/menu/MateriBelajar/Table.vue')
+      path: '/tabelhirakata2',
+      name: 'Hirakata2',
+      component: () => import('../views/sensei/menu/MateriBelajar/tabelhirakata.vue')
+    },
+    {
+      path: '/kanjiadmin2',
+      name: 'kanjiadmin2',
+      component: () => import('../views/sensei/menu/MateriBelajar/KanjiDasarAdmin.vue')
     },
     {
       path: '/hiragana',
@@ -117,6 +147,11 @@ const routes= [
       component: () => import('../views/admin/menu/MateriBelajar2/katasifatadmin.vue')
     },
     {
+      path: '/katasifat2admin',
+      name: 'katasifat2admin',
+      component: () => import('../views/admin/menu/MateriBelajar2/katasifat2admin.vue')
+    },
+    {
       path: '/katakerja',
       name: 'Katakerja',
       component: () => import('../views/user/materi/kedua/KataKerja.vue')
@@ -132,9 +167,24 @@ const routes= [
       component: () => import('../views/user/materi/kedua/KataSifat.vue')
     },
     {
-      path: '/latihan2',
-      name: 'Latihan2',
-      component: () => import('../views/user/materi/kedua/Latihan2.vue')
+      path: '/katakerjaadmin2',
+      name: 'katakerjaadmin2',
+      component: () => import('../views/sensei/menu/MateriBelajar2/katakerjaadmin.vue')
+    },
+    {
+      path: '/katabendaadmin2',
+      name: 'katabendaadmin2',
+      component: () => import('../views/sensei/menu/MateriBelajar2/katabendaadmin.vue')
+    },
+    {
+      path: '/katasifatadmin2',
+      name: 'katasifatadmin2',
+      component: () => import('../views/sensei/menu/MateriBelajar2/katasifatadmin.vue')
+    },
+    {
+      path: '/katasifat2admin2',
+      name: 'katasifat2admin2',
+      component: () => import('../views/sensei/menu/MateriBelajar2/katasifat2admin.vue')
     },
     {
       path: '/materin5',
@@ -192,31 +242,19 @@ const routes= [
           component: Materi55,
         }
     ]
-    },
-    // {
-    //   path: '/materin5',
-    //   component: Materi5,
-    //   children: [{
-    //     path: 'gaarimasu',
-    //     component: {
-    //       default: MateriN5,
-    //       helper: Gaarimasu,
-    //     }
-    //   }] 
-    // }
-    
+    },   
   ]
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes,
 })
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = JSON.parse(localStorage.getItem('authenticated'));
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = JSON.parse(localStorage.getItem('authenticated'));
 
-  if(to.name !== 'Login' && !isAuthenticated) next({ name: 'Login'});
-  if(to.name == 'Login' && isAuthenticated) next({ name: 'Homea'});
-  else next();
-});
+//   if(to.name !== 'Login' && !isAuthenticated) next({ name: 'Yukimaga'});
+//   if(to.name == 'Login' && isAuthenticated) next({ name: 'Homea'});
+//   else next();
+// });
 
 export default router

@@ -6,8 +6,8 @@
   <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
     <font-awesome-icon icon="fa-solid fa-book" />
   </button>
-  <button class="btn btn-light" @click="logout2">
-    Keluar
+  <button class="btn btn-light" @click="logout2"><a href="/" class="nav-link">
+    Keluar</a>
   </button>
 </nav>
 <Sidebar/>

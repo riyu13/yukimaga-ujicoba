@@ -5,7 +5,7 @@ import Sidebar5 from "./componenside/sidebar5.vue";
 </script>
 <template>
 <NavbarUser/>
-<div class="container pt-3">
+<div class="container pt-4">
     <div class="card">
         <div class="card-header"><label class="h3">Tata Bahasa N5</label></div>
         <div class="card-body">

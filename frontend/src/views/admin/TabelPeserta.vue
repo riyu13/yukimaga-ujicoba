@@ -1,11 +1,20 @@
 <template>
 <NavbarAdmin/>
 <SidebarAdmin/>
-<div class="container pt-4">
-  <!-- <router-link to="/pendaftaran" tag="button"><button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#myModal2">Pendaftaran</button></router-link> -->
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal4">Tambah</button>
-<br/>
+<div class="container pt-5">
 <div class="card">
+<div class="card-body">
+<div class="row">
+<div class="col-sm-10">
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal4"><i class="fas fa-user-plus"></i> Tambah</button>
+<br/></div>
+<div class="col">
+    <div class="form-floating mt-1">
+    <input class="form-control" id="users" type="text" placeholder="Search..">
+    <label>Search</label>
+    </div></div>
+</div>
+<div class="card mb-3 mt-1">
 <div class="card-header"><h3 class="text-center">Data Peserta Magang</h3></div>
 <div class="card-body">
 <table id="myTable" class="table table-striped table-hover">
@@ -22,8 +31,9 @@
     <td>Email</td>
     <td>Status</td>
     <td>Opsi</td>
-</tr></thead>
-<tbody >
+</tr>
+</thead>
+<tbody id="tableusers" >
 <tr v-for="(user, index) in users" :key="index">
     <td>{{ index + 1}}</td>
     <td>{{ user.id }}</td>
@@ -35,10 +45,11 @@
     <td>{{ user.jkel }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.id_status }}</td>
-    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(user)">Ubah</button><button @click="del(user)" class="btn btn-danger btn-small">Hapus</button></td>
+    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3" @click="edit(user)"><i class="fas fa-edit"></i></button>
+        <button @click="del(user)" class="btn btn-danger btn-small"><i class="fas fa-trash"></i></button></td>
 </tr></tbody>
-</table>
-</div></div>
+</table></div>
+</div></div></div>
     <!-- The Modal -->
     <div class="modal" id="myModal3">
         <div class="modal-dialog">
@@ -192,6 +203,7 @@ import NavbarAdmin from '../../components/NavbarAdmin.vue';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import SidebarAdmin from '../../components/SidebarAdmin.vue';
+import $ from 'jquery'
 export default {
   data(){
     return{
@@ -311,6 +323,14 @@ export default {
   },
   components: { NavbarAdmin, SidebarAdmin }
 }
+$(document).ready(function(){
+    $("#users").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tableusers tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
 </script>
 
 <style>

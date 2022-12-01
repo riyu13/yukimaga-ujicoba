@@ -1,17 +1,18 @@
-import { createStore } from 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default createStore({
+import auth from './auth' 
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
   state: {
-    app:{
-      name: 'Yukimaga',
-      }
-  },
-  getters: {
   },
   mutations: {
   },
   actions: {
   },
   modules: {
+    auth
   }
 })

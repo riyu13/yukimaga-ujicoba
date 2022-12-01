@@ -25,8 +25,7 @@
     </div>
     <div class="card-footer">
         <div class="row">
-            <div class="col"><strong>Total.</strong></div>
-            <div class="col-span-2">Rp. 5.440.000</div>
+            <div class="col"><strong>Total.</strong> Rp. 5.440.000</div>
         </div>
     </div>
 </div>    

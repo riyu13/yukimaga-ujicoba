@@ -10,7 +10,7 @@
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/hiragana" class="nav-link">Hiragana & Katakana</router-link></a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/kanji" class="nav-link">Kanji Dasar</router-link></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/latihan1" class="nav-link">Latihan</router-link></a>
+            <!-- <a href="#" class="list-group-item list-group-item-action list-group-item-light"><router-link to="/latihan1" class="nav-link">Latihan</router-link></a> -->
           </div>
       </div>
     </div>

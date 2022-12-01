@@ -4,7 +4,7 @@
     </div>
     <div class="container h-100">
         <div class="login_name_wrapper">
-            <div class="d-flex justify-content-center">LPK YUKIMAGA SURAKARTA</div>
+            <div class="d-flex justify-content-center">LOGIN ADMIN</div>
         </div>
     <div class="d-flex justify-content-center h-50" >
         <div class="user_card">
@@ -12,19 +12,19 @@
                 <div class="login_logo_container"> <img src="src\assets\302995624_424832079630979_7744371774240802423_n.jpg" class="login_logo" alt="Logo"> </div>
             </div>
             <div class="d-flex justify-content-center form_container">
-                <form style="width: 320px" @submit="onSubmit">
+                <form style="width: 320px" @submit.prevent="handleSubmit">
                     <div id="msgcont" class="d-flex justify-content-center" style="display:none!important">
                         <div id="msg" class="alert alert-danger py-1 px-2" role="alert"></div>
                     </div>
                     <div class="form-floating mb-2 mt-2">
-                        <input type="text" class="form-control" id="email" placeholder="email" name="email">
+                        <input type="text" class="form-control" id="email" placeholder="email" name="email" v-model="email" required>
                         <label for="email">Email</label>
                     </div>
                     <div class="form-floating mb-2 mt-2">
-                        <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="password" name="password" v-model="pwd" required>
                         <label for="password">Password</label></div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button @click="login" class="btn login_btn">Login</button>
+                        <button v-on:click="login" class="btn login_btn"><a href="/Homea" class="nav-link">Login</a></button>
                     </div>
                 </form>
             </div>
@@ -33,18 +33,16 @@
 </div>
 </template>
 <script>
-import { useRoute } from 'vue-router';
-
-export default{
-    setup(){
-        const router = useRoute()
-        const login = () => {
-            localStorage.setItem('authenticated',true);
-            router.push({ to: '/homea'});
-        };
-        return { login };
-    },
-};
+import { useRouter } from 'vue-router';
+// export default{
+//     setup(){
+//         const router = useRouter();
+//         const login = () => {
+//             localStorage.setItem('authenticated', true)
+//             router.push({ name: 'Homea'})
+//         }
+//         return { login }
+//     }}
 </script>
 
 <style>
